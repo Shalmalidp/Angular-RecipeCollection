@@ -3,26 +3,31 @@ import angular from 'angular';
 import 'angular-ui-router';
 import config from './config';
 
-import AddController    from './controllers/add.controller';
-import ListController   from './controllers/list.controller'; 
-import EditController   from './controllers/edit.controller';
-import DeleteController from './controllers/delete.controller';
-import SingleController from './controllers/single.controller';
-
+import AddController     from './controllers/add.controller';
+import ListController    from './controllers/list.controller'; 
+import EditController    from './controllers/edit.controller';
+import DeleteController  from './controllers/delete.controller';
+import SingleController  from './controllers/single.controller';
+import AboutController   from './controllers/about.controller';
+import ContactController from './controllers/contact.controller';
+import RecipeService     from './services/recipe.service'; 
 
 angular
   .module('app', ['ui.router'])
   .config(config)
-  .controller('AddController', Addcontroller)
-  .controller('EditController', EditController)
   .controller('ListController',ListController)
-  .controller('DeleteController',DeleteController)
   .controller('SingleController', SingleController)
+  .controller('ContactController',ContactController)
+  .controller('AboutController',AboutController)  
+  .controller('AddController', AddController)
+  .controller('EditController', EditController)
+  .controller('DeleteController',DeleteController)
+  .service('RecipeService',RecipeService)
   .constant('PARSE',{
-    URL     :'http://api.parse.com/1/',
+    URL     :'https://api.parse.com/1/',
     CONFIG  :{
       headers :{
-        'X-Parse-Application-Id'  : 'IpJLIPyvS3MHlgzqP07l31bU3R9jnnY37wul6iAv',
+        'X-Parse-Application-Id'  :'IpJLIPyvS3MHlgzqP07l31bU3R9jnnY37wul6iAv',
         'X-Parse-REST-API-Key'    :'5aexRwuEb8XhmAwokeHkRhhHW9LtSdu08WNm0BiM'
       }
 

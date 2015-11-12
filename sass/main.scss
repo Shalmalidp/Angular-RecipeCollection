@@ -7,7 +7,44 @@ body {
   position : relative;
 }
 
+// .right {
+//   li:hover a{
+//   text-decoration:none;
+//   color:#f93c2b;
+// }
+
+// .right {
+//     li {
+//         a{
+//           a:hover{
+//               text-decoration : none;
+//             color:#f93c2b;
+//           }
+//         }
+//     }
+// }
+span{
+  font-style:italic;
+  color:red;
+}
+
 .container {
-  width :500px;
+  width :60%;
   margin :15px auto;
+}
+.list-page {
+  width: 350px;
+  margin:10px 0 10px 10px;
+  padding:0;
+  display:inline-block;
+}
+.list-img{
+  border-radius:15px;
+  overflow:hidden;
+  width:250px;
+  height:200px;
+}
+img{
+  //width:500px;
+  height:300px; 
 }

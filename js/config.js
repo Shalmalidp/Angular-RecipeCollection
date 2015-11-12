@@ -29,6 +29,16 @@ let config = function($stateProvider, $urlRouterProvider){
       controller :'EditController',
       templateUrl :'templates/editRecipes.tpl.html'
     })
+    .state('root.about',{
+      url :'/about',
+      controller :'AboutController',
+      templateUrl : 'templates/about.tpl.html'
+    })
+    .state('root.contact',{
+      url :'/contact',
+      controller :'ContactController',
+      templateUrl : 'templates/contact.tpl.html'
+    })
     .state('root.delete',{
       url :'/delete',
       controller :'DeleteController',
