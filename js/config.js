@@ -38,13 +38,7 @@ let config = function($stateProvider, $urlRouterProvider){
       url :'/contact',
       controller :'ContactController',
       templateUrl : 'templates/contact.tpl.html'
-    })
-    .state('root.delete',{
-      url :'/delete',
-      controller :'DeleteController',
-      templateUrl : 'templates/deleteRecipe.tpl.html'
     });
-
 };
 
 config.$inject=['$stateProvider','$urlRouterProvider'];

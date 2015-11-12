@@ -1,4 +1,4 @@
-let SingleController = function($scope,$stateParams, $http, PARSE,RecipeService){
+let SingleController = function($scope,$stateParams,$state, $http, PARSE,RecipeService){
 
   // let url = PARSE.URL + 'classes/MomsRecipes/' + $stateParams.recipeId;
   // console.log(url);
@@ -10,7 +10,13 @@ let SingleController = function($scope,$stateParams, $http, PARSE,RecipeService)
   RecipeService.getSingleRecipe($stateParams.recipeId).then((res) => { 
     $scope.singleRecipeDetails = res.data;
   });
+
+  $scope.delete = function(obj){
+    RecipeService.delete(obj).then((res)=>{
+      $state.go('root.list');
+    });
+  };
 };
 
-SingleController.$inject=['$scope','$stateParams','$http','PARSE','RecipeService'];
+SingleController.$inject=['$scope','$stateParams','$state','$http','PARSE','RecipeService'];
 export default SingleController;

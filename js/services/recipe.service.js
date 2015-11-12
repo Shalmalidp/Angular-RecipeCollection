@@ -38,11 +38,14 @@ let RecipeService = function($http, PARSE) {
   };
  
   // EDIT VIEW
-  this.update =function(obj) {
-    return $http.put(url +'/' +obj.objectId, obj, PARSE.CONFIG);
+  this.update = function(obj) {
+    return $http.put(url +'/' + obj.objectId, obj, PARSE.CONFIG);
   };
 
   //DELETE VIEW
+  this.delete = function (obj) {
+    return $http.delete(url + '/' + obj.objectId, PARSE.CONFIG);
+  };
 
 
 

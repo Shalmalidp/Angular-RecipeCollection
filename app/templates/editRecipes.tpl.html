@@ -1,11 +1,11 @@
-<h3>Editing {{recipe.id}}</h3>
+<h3 ng-model='recipe.recipeId'>Editing </h3>
 
-<form ng-submit='updateRecipe(recipe)'>
-  <input ng-model='recipe.name'>
-  <input ng-model='recipe.origin'> 
-  <input ng-model='recipe.type'> 
-  <input ng-model = 'recipe.ingredients'>
-  <input ng-model='recipe.desc'> 
-  <input ng-model='recipe.url'>   
+<form ng-submit="updateRecipe(recipe)">
+  <input ng-model="recipe.Name">
+  <input ng-model="recipe.Origination"> 
+  <input ng-model="recipe.Type"> 
+  <input ng-model= "recipe.Ingredients">
+  <input ng-model="recipe.Description"> 
+  <input ng-model="recipe.Picture">   
   <button>Save Changes</button>
 </form>

@@ -6,7 +6,6 @@ import config from './config';
 import AddController     from './controllers/add.controller';
 import ListController    from './controllers/list.controller'; 
 import EditController    from './controllers/edit.controller';
-import DeleteController  from './controllers/delete.controller';
 import SingleController  from './controllers/single.controller';
 import AboutController   from './controllers/about.controller';
 import ContactController from './controllers/contact.controller';
@@ -21,7 +20,6 @@ angular
   .controller('AboutController',AboutController)  
   .controller('AddController', AddController)
   .controller('EditController', EditController)
-  .controller('DeleteController',DeleteController)
   .service('RecipeService',RecipeService)
   .constant('PARSE',{
     URL     :'https://api.parse.com/1/',
