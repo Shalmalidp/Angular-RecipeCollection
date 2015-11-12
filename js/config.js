@@ -25,7 +25,7 @@ let config = function($stateProvider, $urlRouterProvider){
       templateUrl : 'templates/addRecipes.tpl.html'
     })
     .state('root.edit',{
-      url : '/edit',
+      url : '/edit/:recipeId',
       controller :'EditController',
       templateUrl :'templates/editRecipes.tpl.html'
     })

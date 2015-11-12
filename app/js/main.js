@@ -26,7 +26,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
     controller: 'AddController',
     templateUrl: 'templates/addRecipes.tpl.html'
   }).state('root.edit', {
-    url: '/edit',
+    url: '/edit/:recipeId',
     controller: 'EditController',
     templateUrl: 'templates/editRecipes.tpl.html'
   }).state('root.about', {
@@ -67,34 +67,40 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var AddController = function AddController($scope, $http, PARSE) {
+var AddController = function AddController($scope, RecipeService) {
 
-  var url = PARSE.URL + 'classes/MomsRecipes';
-  console.log('url', url);
+  // // MOVED TO SERVICES
+  // let url =PARSE.URL + 'classes/MomsRecipes';
+  // console.log('url', url);
 
-  var MyParseDataConstructor = function MyParseDataConstructor(obj) {
-    this.Name = obj.name;
-    this.Type = obj.type;
-    this.Picture = obj.url;
-    this.Ingredients = obj.ingredients;
-    this.Description = obj.desc;
-    this.Origination = obj.origin;
-  };
-
+  // // CONSTRUCTOR FOR ADD MOVED TO SERVICES TOO
+  // let MyParseDataConstructor = function(obj){
+  //   this.Name         = obj.name;
+  //   this.Type         = obj.type;
+  //   this.Picture      = obj.url;
+  //   this.Ingredients  = obj.ingredients;
+  //   this.Description  = obj.desc;
+  //   this.Origination  = obj.origin;
+  // };
+  //method called in tpl
   $scope.addRecipe = function (obj) {
     console.log(obj);
-
-    //creating instance of constructor
-    var temp = new MyParseDataConstructor(obj);
-
-    $http.post(url, temp, PARSE.CONFIG).then(function (res) {
-      console.log(res);
+    RecipeService.addNewRecipe(obj).then(function () {
       $scope.recipe = {};
     });
+
+    //creating instance of constructor
+    //moved to SERVICe
+    // let temp = new MyParseDataConstructor(obj);
+
+    // $http.post(url, temp, PARSE.CONFIG).then((res)=>{
+    //   console.log(res);
+    //   $scope.recipe ={};
+    // });
   };
 };
 
-AddController.$inject = ['$scope', '$http', 'PARSE'];
+AddController.$inject = ['$scope', 'RecipeService'];
 
 exports['default'] = AddController;
 module.exports = exports['default'];
@@ -129,9 +135,20 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var EditController = function EditController($scope, $http, PARSE) {};
+var EditController = function EditController($scope, $stateParams, RecipeService) {
 
-EditController.$inject = ['$scope', '$http', 'PARSE'];
+  RecipeService.getSingleRecipe($stateParams.recipeId).then(function (res) {
+    $scope.recipe = res.data;
+  });
+  $scope.updateRecipe = function (obj) {
+    RecipeService.update(obj).then(function (res) {
+      $scope.recipe = {};
+      console.log(res);
+    });
+  };
+};
+
+EditController.$inject = ['$scope', '$stateParams', 'RecipeService'];
 exports['default'] = EditController;
 module.exports = exports['default'];
 
@@ -251,7 +268,7 @@ Object.defineProperty(exports, '__esModule', {
 var RecipeService = function RecipeService($http, PARSE) {
 
   var url = PARSE.URL + 'classes/MomsRecipes';
-
+  //LIST VIEW
   this.getRecipeList = function () {
     return $http({
       url: url,
@@ -260,7 +277,7 @@ var RecipeService = function RecipeService($http, PARSE) {
       cache: true
     });
   };
-
+  //SINGLE VIEW
   this.getSingleRecipe = function (recipeId) {
     return $http({
       url: url + '/' + recipeId,
@@ -269,6 +286,30 @@ var RecipeService = function RecipeService($http, PARSE) {
       headers: PARSE.CONFIG.headers
     });
   };
+
+  // ADD VIEW
+  var MyParseDataConstructor = function MyParseDataConstructor(obj) {
+    this.Name = obj.name;
+    this.Type = obj.type;
+    this.Picture = obj.url;
+    this.Ingredients = obj.ingredients;
+    this.Description = obj.desc;
+    this.Origination = obj.origin;
+  };
+
+  this.addNewRecipe = function (obj) {
+    var temp = new MyParseDataConstructor(obj);
+    $http.post(url, temp, PARSE.CONFIG).then(function (res) {
+      console.log(res);
+    });
+  };
+
+  // EDIT VIEW
+  this.update = function (obj) {
+    return $http.put(url + '/' + obj.objectId, obj, PARSE.CONFIG);
+  };
+
+  //DELETE VIEW
 };
 
 RecipeService.$inject = ['$http', 'PARSE'];

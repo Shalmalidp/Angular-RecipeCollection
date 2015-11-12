@@ -1,1 +1,11 @@
-<h3>EDIT TEMPLATE</h3>
+<h3>Editing {{recipe.id}}</h3>
+
+<form ng-submit='updateRecipe(recipe)'>
+  <input ng-model='recipe.name'>
+  <input ng-model='recipe.origin'> 
+  <input ng-model='recipe.type'> 
+  <input ng-model = 'recipe.ingredients'>
+  <input ng-model='recipe.desc'> 
+  <input ng-model='recipe.url'>   
+  <button>Save Changes</button>
+</form>
