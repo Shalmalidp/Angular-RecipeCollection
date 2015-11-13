@@ -2,6 +2,7 @@
 import angular from 'angular';
 import 'angular-ui-router';
 import config from './config';
+//import 'angular-foundation';
 
 import AddController     from './controllers/add.controller';
 import ListController    from './controllers/list.controller'; 

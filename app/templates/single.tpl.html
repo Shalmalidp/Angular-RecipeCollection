@@ -4,8 +4,9 @@
 <hr>
 
 <label>Type : {{singleRecipeDetails.Type}} </label>
-<img ng-src="{{ singleRecipeDetails.Picture }}">
+<img id='singleImage' ng-src="{{ singleRecipeDetails.Picture }}">
 <h4>Ingredients</h4>
-<p>{{singleRecipeDetails.Ingredients}}</p>
+<p class='text'>{{singleRecipeDetails.Ingredients}}</p>
 <h4>Procedure</h4>
-<p>{{singleRecipeDetails.Description}}</p>
+<p class='text'>{{singleRecipeDetails.Description}}</p>
+<hr>

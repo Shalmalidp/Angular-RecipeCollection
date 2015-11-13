@@ -182,9 +182,15 @@ var SingleController = function SingleController($scope, $stateParams, $state, $
   });
 
   $scope['delete'] = function (obj) {
-    RecipeService['delete'](obj).then(function (res) {
-      $state.go('root.list');
-    });
+    var reply = confirm('PLEASE CONFIRM' + obj.Name + ' WILL BE PERMANENTLY DELETED');
+    if (reply) {
+      RecipeService['delete'](obj).then(function (res) {
+        alert('RECORD PERMANENTLY DELETED');
+        $state.go('root.list');
+      });
+    } else {
+      alert('NOT DELETED');
+    }
   };
 };
 
@@ -206,6 +212,8 @@ require('angular-ui-router');
 var _config = require('./config');
 
 var _config2 = _interopRequireDefault(_config);
+
+//import 'angular-foundation';
 
 var _controllersAddController = require('./controllers/add.controller');
 

@@ -12,9 +12,15 @@ let SingleController = function($scope,$stateParams,$state, $http, PARSE,RecipeS
   });
 
   $scope.delete = function(obj){
-    RecipeService.delete(obj).then((res)=>{
-      $state.go('root.list');
-    });
+    let reply = confirm('PLEASE CONFIRM' + obj.Name  +' WILL BE PERMANENTLY DELETED');
+    if(reply){
+      RecipeService.delete(obj).then((res)=>{
+        alert('RECORD PERMANENTLY DELETED');
+        $state.go('root.list');
+      });
+    }else {
+      alert('NOT DELETED');
+    }
   };
 };
 

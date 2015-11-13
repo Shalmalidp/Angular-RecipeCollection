@@ -47,8 +47,6 @@ let RecipeService = function($http, PARSE) {
     return $http.delete(url + '/' + obj.objectId, PARSE.CONFIG);
   };
 
-
-
 };
 
 RecipeService.$inject = ['$http','PARSE'];

@@ -6388,12 +6388,23 @@ th.hide-for-touch {
     display: table-cell !important; } }
 
 body {
-  background: #e2ebf3;
+  background: #F69200;
   position: relative; }
+
+.right li a:hover {
+  color: #D8D200 !important; }
 
 #curry {
   font-style: italic;
-  color: red; }
+  color: #D8D200; }
+
+.text {
+  font-size: 0.8em; }
+
+#singleImage {
+  border-radius: 10%;
+  margin: 10px 0;
+  border: 0.2em solid #D8D200; }
 
 .container {
   width: 60%;
