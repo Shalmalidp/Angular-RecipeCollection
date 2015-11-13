@@ -1,6 +1,6 @@
-## Welcome to My Project
+## Welcome to Curry N Cream
 
-> I am your Readme.md file, you should probably update me.
+> This is a One stop recipe collection for the all recipes cooked by my Grandmother and Mother which will further extend to using recipes made by all my Mamas (Moms Brothers).
 
 
 ## Usage
@@ -20,6 +20,12 @@
 - [Neat](http://neat.bourbon.io/)
 - [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 - [Foundation 5](http://foundation.zurb.com/)
+
+## Dependecies
+
+- [Angular]
+- [Agular-ui-router]
+
 
 #### How to use them?
 
