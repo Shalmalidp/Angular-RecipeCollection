@@ -2,6 +2,8 @@
 
 > This is a One stop recipe collection for the all recipes cooked by my Grandmother and Mother which will further extend to using recipes made by all my Mamas (Moms Brothers).
 
+>To check out my fun app please visit : http://curryandcream.surge.sh
+
 
 ## Usage
 
