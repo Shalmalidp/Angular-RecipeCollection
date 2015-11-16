@@ -81,7 +81,7 @@ var AddController = function AddController($scope, RecipeService) {
   //method called in tpl
   $scope.addRecipe = function (obj) {
     console.log(obj);
-    RecipeService.addNewRecipe(obj).then(function () {
+    RecipeService.addNewRecipe(obj).then(function (res) {
       $scope.recipe = {};
     });
 
@@ -294,9 +294,7 @@ var RecipeService = function RecipeService($http, PARSE) {
 
   this.addNewRecipe = function (obj) {
     var temp = new MyParseDataConstructor(obj);
-    $http.post(url, temp, PARSE.CONFIG).then(function (res) {
-      console.log(res);
-    });
+    return $http.post(url, temp, PARSE.CONFIG);
   };
 
   // EDIT VIEW

@@ -32,9 +32,7 @@ let RecipeService = function($http, PARSE) {
 
   this.addNewRecipe = function(obj){
     let temp = new MyParseDataConstructor(obj);
-    $http.post(url, temp, PARSE.CONFIG).then((res)=>{
-      console.log(res);
-    });
+    return $http.post(url, temp, PARSE.CONFIG);
   };
  
   // EDIT VIEW

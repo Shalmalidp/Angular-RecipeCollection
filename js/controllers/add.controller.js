@@ -16,7 +16,7 @@ let AddController = function($scope, RecipeService){
   //method called in tpl
   $scope.addRecipe = (obj) =>{
     console.log(obj);
-    RecipeService.addNewRecipe(obj).then(()=>{
+    RecipeService.addNewRecipe(obj).then((res)=>{
       $scope.recipe= {};
     });
     
